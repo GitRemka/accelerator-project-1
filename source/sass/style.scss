@@ -1,4 +1,9 @@
 // Vendor
 // ---------------------------------
-
 @import "vendor/normalize";
+
+/* GLOBAL */
+@import "./common/fonts";
+@import "./common/variables";
+@import "./common/global";
+@import "./common/visually-hidden";
