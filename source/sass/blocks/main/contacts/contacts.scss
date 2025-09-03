@@ -1,0 +1,149 @@
+@use "../../../utils/variables.scss" as v;
+@use "../../../utils/mixins.scss" as mix;
+
+.contacts {
+  width: 100%;
+  padding-block: 40px;
+
+  @media (min-width: v.$tablet-width) {
+    padding-block: 60px;
+  }
+
+  @media (min-width: v.$desktop-width) {
+    padding-inline: 103px;
+    border-top: 1px solid v.$divider;
+  }
+}
+
+.contacts__inner {
+  max-width: 440px;
+  margin-inline: auto;
+
+  @media (min-width: v.$desktop-width) {
+    max-width: 477px;
+    margin-left: 0;
+  }
+}
+
+.contacts__title {
+  margin-bottom: 42px;
+  line-height: 24px;
+  text-align: left;
+
+  @media (min-width: v.$tablet-width) {
+    margin-bottom: 36px;
+    font-size: 54px;
+    line-height: 54px;
+    text-align: center;
+  }
+
+  @media (min-width: v.$desktop-width) {
+    text-align: left;
+  }
+}
+
+.contacts__wrapper {
+  display: grid;
+  row-gap: 28px;
+
+  @media (min-width: v.$tablet-width) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.contacts__list {
+  display: grid;
+  row-gap: 28px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  a {
+    width: fit-content;
+  }
+
+  @media (min-width: v.$tablet-width) {
+    row-gap: 15px;
+
+    a {
+      &:hover {
+        text-decoration: underline;
+      }
+
+      @include mix.focus-visible {
+        outline: 1px solid v.$base-primary;
+        outline-offset: 2px;
+      }
+
+      &:active {
+        text-decoration: none;
+      }
+    }
+
+    &:not(:last-of-type) {
+      padding-right: 30px;
+      border-right: 1px solid v.$divider;
+    }
+
+    &:last-of-type {
+      padding-left: 30px;
+    }
+  }
+
+  @media (min-width: v.$desktop-width) {
+    &:not(:last-of-type) {
+      padding-right: 60px;
+    }
+
+    &:last-of-type {
+      padding-left: 60px;
+    }
+  }
+}
+
+.contacts__item {
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
+  color: v.$base-primary;
+
+  h3 {
+    margin: 0;
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: 400;
+  }
+
+  address,
+  p,
+  a {
+    font-style: normal;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    color: inherit;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  @media (min-width: v.$tablet-width) {
+    row-gap: 5px;
+
+    h3 {
+      font-size: 24px;
+      line-height: 24px;
+    }
+
+    address,
+    p,
+    a {
+      line-height: 22px;
+    }
+  }
+}

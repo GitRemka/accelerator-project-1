@@ -1,0 +1,43 @@
+@use "../../../utils/variables.scss" as v;
+
+.faq {
+  padding-block: 70px;
+  max-width: none;
+  background-color: v.$primary-bg;
+
+  @media (min-width: v.$tablet-width) {
+    padding-block: 60px;
+  }
+
+  @media (min-width: v.$desktop-width) {
+    padding-block: 100px;
+  }
+}
+
+.faq__inner {
+  display: grid;
+  row-gap: 35px;
+  max-width: 1160px;
+  height: fit-content;
+  margin-inline: auto;
+
+  @media (min-width: v.$tablet-width) {
+    row-gap: 45px;
+  }
+
+  @media (min-width: v.$desktop-width) {
+    grid-template-columns: 260px 1fr;
+    justify-items: start;
+    gap: 50px 40px;
+  }
+}
+
+.faq__title {
+  @media (min-width: v.$desktop-width) {
+    grid-column: 1/-1;
+  }
+}
+
+.faq__pages {
+  width: 100%;
+}

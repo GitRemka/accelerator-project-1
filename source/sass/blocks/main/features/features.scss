@@ -1,0 +1,28 @@
+@use "../../../utils/variables.scss" as v;
+
+.features {
+  max-width: none;
+  margin: 0;
+  padding-block: 40px;
+  background-color: v.$primary-bg;
+
+  @media (min-width: v.$tablet-width) {
+    padding-block: 60px;
+  }
+
+  @media (min-width: v.$desktop-width) {
+    padding-block: 100px;
+  }
+}
+
+.features__inner {
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+  max-width: 1160px;
+  margin-inline: auto;
+
+  @media (min-width: v.$tablet-width) {
+    row-gap: 50px;
+  }
+}

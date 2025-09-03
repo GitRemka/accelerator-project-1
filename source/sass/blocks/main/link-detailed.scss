@@ -1,0 +1,45 @@
+@use "../../utils/variables.scss" as v;
+@use "../../utils/mixins.scss" as mix;
+
+.link-detailed {
+  display: block;
+  padding-bottom: 5px;
+  height: fit-content;
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: v.$base-white;
+  border-bottom: 1px solid v.$base-white;
+  transition: opacity v.$transition-default;
+
+  @media (min-width: v.$tablet-width) {
+    &[href]:hover:not(.disabled) {
+      opacity: 0.8;
+    }
+
+    @include mix.focus-visible {
+      border: none;
+      outline: 1px solid v.$base-white;
+      outline-offset: 10px;
+    }
+  }
+
+  &[href]:active:not(.disabled) {
+    opacity: 1;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+  }
+
+  &--blue {
+    color: v.$primary-lighter;
+    border-bottom: 1px solid v.$primary-lighter;
+
+    @include mix.focus-visible {
+      outline: 1px solid v.$primary-lighter;
+    }
+  }
+}

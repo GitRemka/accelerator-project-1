@@ -1,0 +1,53 @@
+@use "../../../utils/variables.scss" as v;
+
+.reviews-slider {
+  position: relative;
+  max-width: 700px;
+  margin-inline: auto;
+  padding-inline: 25px;
+
+  @media (min-width: v.$tablet-width) {
+    padding-inline: 69px;
+  }
+
+  @media (min-width: v.$desktop-width) {
+    max-width: 600px;
+    padding-inline: 0;
+  }
+}
+
+.reviews-slider__container {
+  overflow-x: clip;
+  overflow-y: visible;
+
+  @media (min-width: v.$tablet-width) {
+    padding-inline: 20px;
+  }
+}
+
+.reviews-slider__cards {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.reviews-slider__navigation {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  display: none;
+  transform: translateY(-50%);
+
+  @media (min-width: v.$tablet-width) {
+    display: flex;
+    justify-content: space-between;
+    margin-inline: -16px;
+  }
+
+  @media (min-width: v.$desktop-width) {
+    top: 50%;
+    margin-inline: -100px;
+  }
+}

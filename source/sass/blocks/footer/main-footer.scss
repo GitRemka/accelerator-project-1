@@ -1,0 +1,47 @@
+@use "../../utils/variables.scss" as v;
+
+.main-footer {
+  max-width: none;
+  margin: 0;
+  padding-block: 40px;
+  color: v.$base-white;
+  background-color: v.$dark;
+
+  @media (min-width: v.$tablet-width) {
+    padding-block: 45px;
+  }
+
+  @media (min-width: v.$desktop-width) {
+    padding-block: 40px;
+  }
+}
+
+.main-footer__inner {
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+  max-width: 1160px;
+  margin-inline: auto;
+
+  @media (min-width: v.$tablet-width) {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+}
+
+.main-footer__logo {
+  width: 100px;
+  height: 20px;
+  object-fit: cover;
+
+  @media (min-width: v.$tablet-width) {
+    width: 110px;
+    height: 22px;
+  }
+
+  @media (min-width: v.$desktop-width) {
+    width: 130px;
+    height: 26px;
+  }
+}

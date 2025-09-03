@@ -1,0 +1,154 @@
+@use "../../../utils/variables.scss" as v;
+
+.offer-banner {
+  display: grid;
+
+  &::after {
+    content: "";
+    width: 100%;
+    height: 360px;
+    background-color: #426adc;
+    background-image:
+      image-set(
+        url("../../../../img/bg/sports-girl-mobile@1x.webp") type("image/webp"),
+        url("../../../../img/bg/sports-girl-mobile@1x.jpg")
+      );
+    background-position: 50% top;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @media (resolution >= 2dppx) {
+      background-image:
+        image-set(
+          url("../../../../img/bg/sports-girl-mobile@2x.webp") type("image/webp"),
+          url("../../../../img/bg/sports-girl-mobile@2x.jpg")
+        );
+    }
+  }
+
+  @media (max-width: v.$mobile-width-only) {
+    margin-inline: calc(v.$mobile-pd-container * (-1));
+
+    &::after {
+      padding-top: 112.5%;
+    }
+  }
+
+  @media (min-width: v.$tablet-width) {
+    grid-template-columns: 1fr 400px;
+
+    &::after {
+      height: 462px;
+      background-image:
+        image-set(
+          url("../../../../img/bg/sports-girl-tablet@1x.webp") type("image/webp"),
+          url("../../../../img/bg/sports-girl-tablet@1x.jpg")
+        );
+
+      @media (resolution >= 2dppx) {
+        background-image:
+          image-set(
+            url("../../../../img/bg/sports-girl-tablet@2x.webp") type("image/webp"),
+            url("../../../../img/bg/sports-girl-tablet@2x.jpg")
+          );
+      }
+    }
+  }
+
+  @media (min-width: v.$desktop-width) {
+    grid-template-columns: 1fr 1fr;
+
+    &::after {
+      height: 460px;
+      background-image:
+        image-set(
+          url("../../../../img/bg/sports-girl-desktop@1x.webp") type("image/webp"),
+          url("../../../../img/bg/sports-girl-desktop@1x.jpg")
+        );
+
+      @media (resolution >= 2dppx) {
+        background-image:
+          image-set(
+            url("../../../../img/bg/sports-girl-desktop@2x.webp") type("image/webp"),
+            url("../../../../img/bg/sports-girl-desktop@2x.jpg")
+          );
+      }
+    }
+  }
+}
+
+.offer-banner__content {
+  display: grid;
+  justify-content: center;
+  justify-items: center;
+  row-gap: 28px;
+  padding: 30px 15px;
+  color: v.$base-white;
+  background-color: v.$accent-bg;
+
+  p {
+    max-width: 200px;
+    margin: 0;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 300;
+    text-align: center;
+  }
+
+  @media (min-width: v.$tablet-width) {
+    grid-template-rows: repeat(2, auto) 1fr;
+    justify-items: start;
+    justify-content: start;
+    row-gap: 40px;
+    padding: 40px 25px;
+
+    p {
+      font-size: 18px;
+      line-height: 24px;
+      text-align: left;
+    }
+  }
+
+  @media (min-width: v.$desktop-width) {
+    padding-inline: 45px;
+  }
+}
+
+.offer-banner__head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 9px;
+  font-weight: 700;
+
+  span {
+    font-size: 22px;
+    line-height: 22px;
+  }
+
+  b {
+    font-size: 64px;
+    line-height: 64px;
+    font-weight: inherit;
+  }
+
+  @media (min-width: v.$tablet-width) {
+    align-items: flex-start;
+    row-gap: 20px;
+
+    span {
+      font-size: 24px;
+      line-height: 24px;
+    }
+
+    b {
+      font-size: 70px;
+      line-height: 70px;
+    }
+  }
+
+  @media (min-width: v.$desktop-width) {
+    font-size: 26px;
+    line-height: 26px;
+  }
+}

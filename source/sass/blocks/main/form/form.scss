@@ -1,0 +1,9 @@
+@use "../../../utils/variables.scss" as v;
+
+.form {
+  display: grid;
+
+  @media (min-width: v.$desktop-width) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

@@ -1,0 +1,54 @@
+@use "../../../utils/variables.scss" as v;
+@use "../../../utils/mixins.scss" as mix;
+
+.faq-tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-width: 140px;
+  min-height: 46px;
+  font-size: 16px;
+  line-height: 16px;
+  text-decoration: none;
+  color: v.$base-primary;
+  border: 1px solid v.$tab-border;
+  transition: border-color v.$transition-default,;
+
+  @media (min-width: v.$tablet-width) {
+    min-height: 54px;
+    font-size: 18px;
+    line-height: 18px;
+
+    &[href]:hover:not(.disabled) {
+      border: 1px solid v.$base-primary;
+    }
+
+    @include mix.focus-visible {
+      outline: none;
+      background-color: v.$base-white;
+      border: 1px solid v.$base-primary;
+    }
+  }
+
+  &[href]:active:not(.disabled) {
+    color: v.$base-white;
+    background: v.$button-grad;
+    border: none;
+  }
+
+  &:disabled {
+    color: #c8c9cc;
+    border-color: rgba($color: v.$base-primary, $alpha: 0.2);
+  }
+
+  @media (min-width: v.$desktop-width) {
+    padding-block: 19px 15px;
+  }
+}
+
+.faq-tab.is-active {
+  color: v.$base-white;
+  background: v.$button-grad;
+  border: none;
+}

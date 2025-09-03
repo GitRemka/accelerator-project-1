@@ -1,0 +1,26 @@
+@use "../../utils/variables.scss" as v;
+
+.hero-content {
+  @media (min-width: v.$tablet-width) {
+    display: grid;
+    grid-template-columns: repeat(2, 324px);
+    align-items: center;
+    justify-content: space-evenly;
+    justify-items: end;
+    column-gap: 30px;
+  }
+
+  @media (min-width: v.$desktop-width) {
+    grid-template-columns: 385px 500px;
+    column-gap: 56px;
+    padding-inline: 250px 175px;
+  }
+}
+
+.hero-content__main-img {
+  display: none;
+
+  @media (min-width: v.$tablet-width) {
+    display: block;
+  }
+}

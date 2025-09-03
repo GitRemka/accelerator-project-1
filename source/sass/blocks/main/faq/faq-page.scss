@@ -1,0 +1,35 @@
+@use "../../../utils/variables.scss" as v;
+
+.faq-page {
+  display: none;
+}
+
+.faq-page.is-active,
+.faq-page:target {
+  display: block;
+  animation-name: show-faq-page;
+  animation-duration: 0.8s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+.faq-page__list-questions {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @media (min-width: v.$desktop-width) {
+    margin-top: -1px;
+  }
+}
+
+@keyframes show-faq-page {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

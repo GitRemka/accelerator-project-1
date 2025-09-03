@@ -1,0 +1,49 @@
+@use "../../utils/variables.scss" as v;
+@use "../../utils/mixins.scss" as mix;
+
+.link-menu {
+  position: relative;
+  display: block;
+  height: 20px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  text-decoration: none;
+  color: v.$base-white;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -5px;
+    height: 1px;
+    background-color: v.$base-white;
+    opacity: 0;
+    transition: opacity v.$transition-default;
+  }
+
+  @media (min-width: v.$tablet-width) {
+    height: 22px;
+    line-height: 22px;
+
+    &[href]:hover:not(.disabled) {
+      &::after {
+        opacity: 1;
+      }
+    }
+
+    @include mix.focus-visible {
+      outline: 1px solid v.$base-white;
+      outline-offset: 10px;
+    }
+  }
+
+  &[href]:active:not(.disabled)::after {
+    opacity: 0;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+  }
+}

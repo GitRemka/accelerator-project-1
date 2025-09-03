@@ -1,0 +1,44 @@
+@use "../../../utils/variables.scss" as v;
+
+.bid {
+  width: 100%;
+  padding-block: 70px;
+  color: v.$base-white;
+  background-color: v.$base-primary;
+
+  @media (min-width: v.$tablet-width) {
+    padding-block: 60px;
+  }
+
+  @media (min-width: v.$desktop-width) {
+    padding-inline: 103px;
+  }
+}
+
+.bid__inner {
+  display: flex;
+  flex-direction: column;
+  row-gap: 36px;
+  max-width: 440px;
+  margin-inline: auto;
+
+  @media (min-width: v.$desktop-width) {
+    max-width: 477px;
+    margin-right: 0;
+  }
+}
+
+.bid__title {
+  text-align: left;
+  color: inherit;
+
+  @media (min-width: v.$tablet-width) {
+    font-size: 54px;
+    line-height: 54px;
+    text-align: center;
+  }
+
+  @media (min-width: v.$desktop-width) {
+    text-align: left;
+  }
+}

@@ -1,0 +1,121 @@
+@use "../../../utils/variables.scss" as v;
+
+.season-tickets {
+  position: relative;
+  padding-block: 40px;
+  text-align: center;
+  background-color: v.$primary-bg;
+  overflow: hidden;
+
+  @media (min-width: v.$tablet-width) {
+    padding-block: 60px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      right: -79px;
+      bottom: -35px;
+      z-index: 0;
+      width: 403px;
+      height: 422px;
+      background-image:
+        image-set(
+          url("../../../../img/bg/barbell-discs-tablet@1x.webp") type("image/webp"),
+          url("../../../../img/bg/barbell-discs-tablet@1x.png")
+        );
+      background-position: 50%;
+      background-repeat: no-repeat;
+      background-size: contain;
+
+      @media (resolution >= 2dppx) {
+        background-image:
+          image-set(
+            url("../../../../img/bg/barbell-discs-tablet@2x.webp") type("image/webp"),
+            url("../../../../img/bg/barbell-discs-tablet@2x.png")
+          );
+      }
+    }
+  }
+
+  @media (min-width: v.$desktop-width) {
+    max-width: none;
+    padding-block: 100px;
+
+    &::after {
+      right: -167px;
+      bottom: -48px;
+      width: 470px;
+      height: 494px;
+      background-image:
+        image-set(
+          url("../../../../img/bg/barbell-discs-desktop@1x.webp") type("image/webp"),
+          url("../../../../img/bg/barbell-discs-desktop@1x.png")
+        );
+    }
+
+    @media (resolution >= 2dppx) {
+      &::after {
+        background-image:
+          image-set(
+            url("../../../../img/bg/barbell-discs-desktop@2x.webp") type("image/webp"),
+            url("../../../../img/bg/barbell-discs-desktop@2x.png")
+          );
+      }
+    }
+  }
+}
+
+.season-tickets__title {
+  margin-bottom: 30px;
+
+  @media (min-width: v.$tablet-width) {
+    margin-bottom: 35px;
+  }
+
+  @media (min-width: v.$desktop-width) {
+    margin-bottom: 20px;
+  }
+}
+
+.season-tickets__container {
+  position: relative;
+  z-index: 1;
+  max-width: 1160px;
+  margin-inline: auto;
+}
+
+.season-tickets__tabs {
+  margin-bottom: 30px;
+
+  @media (min-width: v.$tablet-width) {
+    margin-bottom: 45px;
+  }
+
+  @media (min-width: v.$desktop-width) {
+    margin-bottom: 40px;
+  }
+}
+
+.season-tickets__tab-page {
+  display: none;
+}
+
+.season-tickets__tab-page.is-active {
+  display: block;
+  animation-name: show-tab-page;
+  animation-duration: 0.7s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes show-tab-page {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 10%, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}

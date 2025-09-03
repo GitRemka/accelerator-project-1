@@ -1,0 +1,61 @@
+@use "../../utils/variables.scss" as v;
+@use "../../utils/mixins.scss" as mix;
+
+.slider-button-nav {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  pointer-events: auto;
+  transition:
+    border-color v.$transition-default,
+    background-color v.$transition-default;
+
+  &::after {
+    content: "";
+    width: 20px;
+    height: 38px;
+    background-color: v.$base-primary;
+  }
+
+  &--next::after {
+    mask: url("/__spritemap#arrow-view") no-repeat right center;
+    mask-size: 18px 32px;
+  }
+
+  &--prev::after {
+    mask: url("/__spritemap#arrow-view") no-repeat right center;
+    mask-size: 18px 32px;
+    transform: scaleX(-1);
+  }
+
+  @media (min-width: v.$tablet-width) {
+    &:hover:not(:disabled) {
+      border-color: v.$base-primary;
+    }
+
+    @include mix.focus-visible {
+      background-color: #e8e8e8;
+      border-color: v.$base-primary;
+      outline: none;
+    }
+  }
+
+  &:active:not(:disabled) {
+    background-color: v.$base-primary;
+
+    &::after {
+      background-color: v.$base-white;
+    }
+  }
+
+  &:disabled {
+    opacity: 0.3;
+  }
+}

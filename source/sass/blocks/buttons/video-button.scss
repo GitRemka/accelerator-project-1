@@ -1,0 +1,112 @@
+@use "../../utils/variables.scss" as v;
+@use "../../utils/mixins.scss" as mix;
+
+.video-button {
+  position: relative;
+  width: 72px;
+  height: 72px;
+  background-color: transparent;
+  border: 2px solid rgba($color: v.$accent-bg, $alpha: 0.2);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: border-color v.$transition-default;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &::before {
+    width: 52px;
+    height: 52px;
+    background: v.$button-grad;
+    border-radius: 50%;
+    transition: transform v.$transition-default;
+  }
+
+  &::after {
+    width: 12px;
+    height: 12px;
+    mask: url("/__spritemap#sprite-polygon-view") no-repeat right center;
+    mask-size: 10px 12px;
+    background-color: v.$base-white;
+    transition: background-color v.$transition-default;
+  }
+
+  @media (min-width: v.$tablet-width) {
+    &:hover:not(:disabled) {
+      border-color: rgba($color: v.$base-primary, $alpha: 0.6);
+
+      &::before {
+        background-image: none;
+        background-color: v.$base-white;
+      }
+
+      &::after {
+        background-color: rgba($color: v.$base-primary, $alpha: 0.6);
+      }
+    }
+
+    @include mix.focus-visible {
+      border-color: v.$base-primary;
+      outline: none;
+
+      &::before {
+        background-image: none;
+        background-color: #c8c9cc;
+      }
+
+      &::after {
+        background-color: v.$base-primary;
+      }
+    }
+  }
+
+  &:active:not(:disabled) {
+    border-color: v.$base-primary;
+
+    &::before {
+      background-image: none;
+      background-color: v.$base-white;
+      transform: translate(-50%, -50%) scale(0.76);
+    }
+
+    &::after {
+      background-color: v.$base-primary;
+    }
+  }
+
+  &:disabled {
+    border-color: v.$base-primary;
+    opacity: 0.4;
+
+    &::before {
+      background-image: none;
+      background-color: v.$base-white;
+    }
+
+    &::after {
+      background-color: v.$base-primary;
+    }
+  }
+
+  @media (min-width: v.$desktop-width) {
+    width: 100px;
+    height: 100px;
+
+    &::before {
+      width: 72px;
+      height: 72px;
+    }
+
+    &::after {
+      width: 17px;
+      height: 17px;
+      mask-size: 13px 15px;
+    }
+  }
+}

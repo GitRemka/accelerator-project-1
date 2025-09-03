@@ -1,0 +1,27 @@
+@use "../../../utils/variables.scss" as v;
+
+.reviews {
+  padding-block: 40px;
+
+  @media (min-width: v.$tablet-width) {
+    padding-block: 60px;
+  }
+
+  @media (min-width: v.$desktop-width) {
+    padding-block: 100px;
+  }
+}
+
+.reviews__title {
+  margin-bottom: 40px;
+
+  @media (min-width: v.$tablet-width) {
+    margin-bottom: 35px;
+    font-size: 54px;
+    line-height: 54px;
+  }
+
+  @media (min-width: v.$desktop-width) {
+    margin-bottom: 75px;
+  }
+}

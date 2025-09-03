@@ -1,0 +1,118 @@
+@use "../../../utils/variables.scss" as v;
+
+.about {
+  display: grid;
+  gap: 36px 145px;
+  padding-block: 40px;
+
+  @media (min-width: v.$tablet-width) {
+    padding-block: 60px 120px;
+  }
+
+  @media (min-width: v.$desktop-width) {
+    grid-template-columns: 355px 1fr;
+    padding-block: 120px 240px;
+  }
+}
+
+.about__text {
+  p {
+    max-width: 505px;
+    margin: 0;
+    font-weight: 300;
+    line-height: 22px;
+
+    @media (min-width: v.$tablet-width) {
+      margin-inline: auto;
+      font-size: 16px;
+      line-height: 24px;
+      text-align: center;
+    }
+
+    @media (min-width: v.$desktop-width) {
+      display: block;
+      margin-inline: 0;
+      text-align: left;
+
+      &:not(:last-of-type) {
+        margin-bottom: 8px;
+      }
+    }
+
+    @media (width <= calc(v.$desktop-width - 1px)) {
+      &:not(:first-of-type) {
+        display: none;
+      }
+    }
+  }
+}
+
+.about__title {
+  margin-bottom: 12px;
+  text-align: left;
+
+  @media (min-width: v.$tablet-width) {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  @media (min-width: v.$desktop-width) {
+    margin-bottom: 25px;
+    text-align: left;
+  }
+}
+
+.about__description {
+  display: block;
+  margin-bottom: 36px;
+  font-size: 18px;
+  line-height: 20px;
+
+  @media (min-width: v.$tablet-width) {
+    margin-bottom: 36px;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  @media (min-width: v.$desktop-width) {
+    margin-bottom: 95px;
+    font-size: 22px;
+    line-height: 22px;
+    text-align: left;
+  }
+}
+
+.about__media {
+  position: relative;
+  display: grid;
+  justify-content: center;
+  row-gap: 36px;
+  margin-inline: -15px;
+  padding: 0;
+
+  @media (min-width: v.$tablet-width) {
+    margin-inline: 0;
+  }
+}
+
+.about__img {
+  display: block;
+}
+
+.about__video {
+  @media (min-width: v.$tablet-width) {
+    position: absolute;
+    left: 50%;
+    bottom: -85px;
+    width: 270px;
+    transform: translateX(-50%);
+  }
+
+  @media (min-width: v.$desktop-width) {
+    left: -100px;
+    bottom: auto;
+    top: 285px;
+    width: 360px;
+    transform: translateX(0);
+  }
+}

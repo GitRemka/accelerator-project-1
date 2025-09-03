@@ -1,0 +1,37 @@
+@use "../../../utils/variables.scss" as v;
+
+.offers {
+  display: grid;
+  row-gap: 40px;
+  padding-block: 40px;
+
+  @media (min-width: v.$tablet-width) {
+    row-gap: 35px;
+    padding-block: 60px;
+  }
+
+  @media (min-width: v.$desktop-width) {
+    row-gap: 70px;
+    padding-block: 100px;
+  }
+}
+
+.offers__columns {
+  display: grid;
+  gap: 40px;
+
+  @media (min-width: v.$tablet-width) {
+    row-gap: 35px;
+  }
+
+  @media (min-width: v.$desktop-width) {
+    grid-template-columns: minmax(560px, 1fr) 1fr;
+    align-items: end;
+  }
+}
+
+.offers__link {
+  @media (min-width: v.$tablet-width) {
+    margin-top: auto;
+  }
+}

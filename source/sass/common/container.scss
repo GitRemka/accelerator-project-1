@@ -1,0 +1,16 @@
+@use "../utils/variables.scss" as v;
+
+.container {
+  min-width: 320px;
+  margin: 0 auto;
+  padding: 0 v.$mobile-pd-container;
+
+  @media (min-width: v.$tablet-width) {
+    padding-inline: v.$tablet-pd-container;
+  }
+
+  @media (min-width: v.$desktop-width) {
+    max-width: v.$desktop-width;
+    padding-inline: v.$desktop-pd-container;
+  }
+}

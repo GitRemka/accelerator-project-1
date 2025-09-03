@@ -1,9 +1,85 @@
 // Vendor
 // ---------------------------------
 @import "vendor/normalize";
+@import "vendor/swiper";
 
-/* GLOBAL */
+// GLOBAL
+// ---------------------------------
 @import "./common/fonts";
-@import "./common/variables";
 @import "./common/global";
+@import "./common/container";
 @import "./common/visually-hidden";
+
+// Blocks
+// Buttons ---------------------------------
+@import "./blocks/buttons/button-primary";
+@import "./blocks/buttons/video-button";
+
+// Hero ---------------------------------
+@import "./blocks/hero/hero";
+@import "./blocks/hero/header";
+@import "./blocks/hero/hero-content";
+@import "./blocks/hero/info-hero";
+@import "./blocks/hero/title-header";
+
+// Slider-elements ---------------------------------
+@import "./blocks/slider-elements/slider-button-nav";
+
+// Main ---------------------------------
+@import "./blocks/main/title-block";
+@import "./blocks/main/link-detailed";
+@import "./blocks/main/link-menu";
+@import "./blocks/main/social-link";
+@import "./blocks/main/field-data";
+
+// About ---------------------------------
+@import "./blocks/main/about/about-video";
+@import "./blocks/main/about/about";
+
+// Season-tickets ---------------------------------
+@import "./blocks/main/season-tickets/season-tickets-tabs";
+@import "./blocks/main/season-tickets/season-tickets";
+@import "./blocks/main/season-tickets/tickets-programs";
+@import "./blocks/main/season-tickets/ticket-program";
+
+// Games ---------------------------------
+@import "./blocks/main/games/games";
+@import "./blocks/main/games/games-banner";
+
+// Jury ---------------------------------
+@import "./blocks/main/jury/jury";
+@import "./blocks/main/jury/jury-slider";
+@import "./blocks/main/jury/jury-card";
+
+// Features ---------------------------------
+@import "./blocks/main/features/features";
+@import "./blocks/main/features/features-list";
+
+// Offers ---------------------------------
+@import "./blocks/main/offers/offers";
+@import "./blocks/main/offers/offer-banner";
+@import "./blocks/main/offers/offer-cards";
+
+// Faq ---------------------------------
+@import "./blocks/main/faq/faq";
+@import "./blocks/main/faq/faq-tabs";
+@import "./blocks/main/faq/faq-tab";
+@import "./blocks/main/faq/faq-page";
+@import "./blocks/main/faq/questions-item";
+@import "./blocks/main/faq/faq-button";
+
+// Reviews ---------------------------------
+@import "./blocks/main/reviews/reviews";
+@import "./blocks/main/reviews/reviews-slider";
+@import "./blocks/main/reviews/review-card";
+
+// Form ---------------------------------
+@import "./blocks/main/form/form";
+@import "./blocks/main/bid/bid";
+@import "./blocks/main/form-bid/form-bid";
+@import "./blocks/main/contacts/contacts";
+
+// Footer ---------------------------------
+@import "./blocks/footer/main-footer";
+@import "./blocks/footer/main-footer-nav";
+@import "./blocks/footer/social";

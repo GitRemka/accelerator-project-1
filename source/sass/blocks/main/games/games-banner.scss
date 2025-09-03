@@ -1,0 +1,224 @@
+@use "../../../utils/variables.scss" as v;
+
+.games-banner {
+  display: grid;
+  max-width: 380px;
+  margin-inline: auto;
+
+  &::after {
+    content: "";
+    width: 100%;
+    max-width: 380px;
+    min-height: 290px;
+    background-color: #010246;
+    background-image:
+      image-set(
+        url("../../../../img/bg/crossfit-games-mobile@1x.webp") type("image/webp"),
+        url("../../../../img/bg/crossfit-games-mobile@1x.jpg")
+      );
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @media (resolution >= 2dppx) {
+      background-image:
+        image-set(
+          url("../../../../img/bg/crossfit-games-mobile@2x.webp") type("image/webp"),
+          url("../../../../img/bg/crossfit-games-mobile@2x.jpg")
+        );
+    }
+  }
+
+  @media (min-width: v.$tablet-width) {
+    grid-template-columns: 300px 1fr;
+    max-width: 800px;
+
+    &::after {
+      max-width: none;
+      min-height: 348px;
+      background-image:
+        image-set(
+          url("../../../../img/bg/crossfit-games-tablet@1x.webp") type("image/webp"),
+          url("../../../../img/bg/crossfit-games-tablet@1x.jpg")
+        );
+
+      @media (resolution >= 2dppx) {
+        background-image:
+          image-set(
+            url("../../../../img/bg/crossfit-games-tablet@2x.webp") type("image/webp"),
+            url("../../../../img/bg/crossfit-games-tablet@2x.jpg")
+          );
+      }
+    }
+  }
+
+  @media (min-width: v.$desktop-width) {
+    grid-template-columns: 500px 1fr;
+    max-width: 1200px;
+
+    &::after {
+      min-height: 500px;
+      background-image:
+        image-set(
+          url("../../../../img/bg/crossfit-games-desktop@1x.webp") type("image/webp"),
+          url("../../../../img/bg/crossfit-games-desktop@1x.jpg")
+        );
+
+      @media (resolution >= 2dppx) {
+        background-image:
+          image-set(
+            url("../../../../img/bg/crossfit-games-desktop@2x.webp") type("image/webp"),
+            url("../../../../img/bg/crossfit-games-desktop@2x.jpg")
+          );
+      }
+    }
+  }
+}
+
+.games-banner__content {
+  display: grid;
+  justify-content: space-between;
+  grid-template-columns: auto 56px;
+  grid-template-areas:
+    "title       info-list"
+    "description description"
+    "link        link";
+  row-gap: 16px;
+  padding: 40px;
+  color: v.$base-white;
+  background-color: v.$accent-bg;
+
+  p {
+    margin: 0;
+    grid-area: description;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 300;
+  }
+
+  @media (min-width: v.$tablet-width) {
+    grid-template-columns: auto 100px;
+    row-gap: 10px;
+
+    p {
+      font-size: 18px;
+      line-height: 24px;
+    }
+  }
+
+  @media (min-width: v.$desktop-width) {
+    grid-template-columns: auto 95px;
+    padding: 60px 80px 98px;
+    row-gap: 30px;
+  }
+}
+
+
+.games-banner__title {
+  grid-area: title;
+  max-width: 150px;
+  margin: 0;
+  font-family: v.$second-family;
+  font-size: 48px;
+  line-height: 54px;
+  font-weight: 600;
+  text-transform: uppercase;
+
+  @media (min-width: v.$desktop-width) {
+    font-size: 82px;
+    line-height: 96px;
+  }
+}
+
+.games-banner__info-list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+  grid-area: info-list;
+  margin: 0;
+
+  @media (min-width: v.$tablet-width) {
+    row-gap: 10px;
+  }
+
+  @media (min-width: v.$desktop-width) {
+    row-gap: 20px;
+  }
+}
+
+.games-banner__item {
+  display: grid;
+  row-gap: 2px;
+
+  @media (min-width: v.$desktop-width) {
+    row-gap: 6px;
+  }
+}
+
+.games-banner__term {
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 300;
+  padding-bottom: 2px;
+  border-bottom: 1px solid v.$base-white;
+
+  @media (min-width: v.$tablet-width) {
+    padding-bottom: 1px;
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  @media (min-width: v.$desktop-width) {
+    padding-bottom: 5px;
+  }
+}
+
+.games-banner__description {
+  display: flex;
+  margin: 0;
+
+  span {
+    max-width: min-content;
+    font-size: 12px;
+    line-height: 12px;
+
+    @media (min-width: v.$tablet-width) {
+      font-size: 14px;
+      line-height: 22px;
+    }
+  }
+
+  b,
+  time {
+    font-size: 24px;
+    line-height: 24px;
+    font-weight: 700;
+  }
+
+  &--column {
+    align-items: center;
+    column-gap: 3px;
+  }
+
+  @media (min-width: v.$tablet-width) {
+    &--column {
+      column-gap: 5px;
+    }
+  }
+
+  @media (min-width: v.$desktop-width) {
+    b,
+    time {
+      font-size: 40px;
+      line-height: 40px;
+    }
+  }
+}
+
+.games-banner__link {
+  grid-area: link;
+
+  @media (min-width: v.$tablet-width) {
+    height: 66px;
+  }
+}

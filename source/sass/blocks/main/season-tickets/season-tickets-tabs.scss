@@ -1,0 +1,73 @@
+@use "../../../utils/variables.scss" as v;
+@use "../../../utils/mixins.scss" as mix;
+
+.season-tickets-tabs {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 20px;
+  width: min(100%, 310px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow-x: auto;
+  box-shadow: inset 0 -2px 0 0 rgba(#787878, 0.2);
+
+  @media (min-width: v.$desktop-width) {
+    width: min(100%, 350px);
+  }
+}
+
+.season-tickets-tabs__item {
+  flex-shrink: 0;
+}
+
+.season-tickets-tabs__button {
+  padding: 0 0 8px;
+  font-size: 16px;
+  line-height: 16px;
+  color: v.$light-grey;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition:
+    color v.$transition-default,
+    border-color v.$transition-default;
+
+  @media (min-width: v.$tablet-width) {
+    font-size: 18px;
+    line-height: 18px;
+
+    &:hover:not(:disabled) {
+      color: rgba($color: v.$base-primary, $alpha: 0.7);
+      border-bottom: 2px solid v.$tab-states-hover;
+    }
+
+    @include mix.focus-visible {
+      color: v.$base-primary;
+      border-bottom: 2px solid v.$base-primary;
+      outline: none;
+    }
+  }
+
+  &:active:not(:disabled) {
+    color: v.$base-primary;
+    border-bottom: 2px solid v.$tab-states-active;
+  }
+
+  &:disabled {
+    opacity: 0.3;
+    border-bottom: 2px solid v.$base-primary;
+  }
+
+
+  @media (min-width: v.$desktop-width) {
+    font-size: 20px;
+    line-height: 20px;
+  }
+}
+
+.season-tickets-tabs__button.active:not(:disabled) {
+  border-bottom: 2px solid v.$tab-states-active;
+}

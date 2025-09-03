@@ -1,0 +1,83 @@
+@use "../../../utils/variables.scss" as v;
+@use "../../../utils/mixins.scss" as mix;
+
+.faq-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border: 1px solid v.$primary-lighter;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color v.$transition-default;
+
+  &::after {
+    content: "";
+    width: 14px;
+    height: 14px;
+    mask: url("/__spritemap#sprite-plus-view") no-repeat 50%;
+    mask-size: 14px 14px;
+    background-color: v.$primary-lighter;
+  }
+
+  @media (min-width: v.$tablet-width) {
+    width: 40px;
+    height: 40px;
+
+    &::after {
+      width: 20px;
+      height: 20px;
+      mask-size: 20px 20px;
+    }
+
+    &:hover:not(:disabled) {
+      background-color: v.$primary-lighter;
+    }
+
+    &:hover:not(:disabled)::after {
+      background-color: v.$base-white;
+    }
+
+    @include mix.focus-visible {
+      background-color: v.$divider;
+      border-color: v.$primary-lighter;
+      outline: none;
+
+      &::after {
+        background-color: v.$base-white;
+      }
+    }
+
+    &:disabled {
+      opacity: 0.3;
+    }
+  }
+}
+
+.faq-button.open {
+  background-color: v.$primary-lighter;
+
+  &::after {
+    height: 2px;
+    mask: url("/__spritemap#sprite-minus-view") no-repeat 50%;
+    mask-size: 14px 2px;
+    background-color: v.$base-white;
+  }
+
+  @media (min-width: v.$tablet-width) {
+    &::after {
+      height: 2px;
+      mask-size: 20px 2px;
+    }
+
+    &:hover:not(:disabled) {
+      background-color: transparent;
+    }
+
+    &:hover:not(:disabled)::after {
+      background-color: v.$primary-lighter;
+    }
+  }
+}

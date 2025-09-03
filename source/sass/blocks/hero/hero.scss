@@ -1,0 +1,26 @@
+@use "../../utils/variables.scss" as v;
+
+.hero {
+  background: v.$main-grad;
+  padding-bottom: 32px;
+
+  @media (min-width: v.$tablet-width) {
+    padding-bottom: 100px;
+  }
+
+  @media (min-width: v.$desktop-width) {
+    padding-bottom: 120px;
+  }
+}
+
+.hero__header {
+  margin-bottom: 48px;
+
+  @media (min-width: v.$tablet-width) {
+    margin-bottom: 0;
+  }
+
+  @media (min-width: v.$desktop-width) {
+    margin-bottom: 30px;
+  }
+}

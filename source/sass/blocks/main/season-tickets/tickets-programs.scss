@@ -1,0 +1,19 @@
+@use "../../../utils/variables.scss" as v;
+
+.tickets-programs {
+  display: grid;
+  justify-items: center;
+  row-gap: 35px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @media (min-width: v.$tablet-width) {
+    row-gap: 40px;
+  }
+
+  @media (min-width: v.$desktop-width) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+}

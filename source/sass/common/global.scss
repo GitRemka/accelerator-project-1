@@ -1,5 +1,5 @@
 /* здесь используйте глобальные селекторы img, body, html и так далее */
-@use "variables.scss" as v;
+@use "../utils/variables.scss" as v;
 
 *,
 *::before,
@@ -35,4 +35,3 @@ img {
   height: auto;
   object-fit: contain;
 }
-

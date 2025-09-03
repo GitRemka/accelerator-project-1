@@ -1,0 +1,43 @@
+@use "../../../utils/variables.scss" as v;
+@use "../../../utils/mixins.scss" as mix;
+
+.jury-slider {
+  position: relative;
+  padding-inline: 15px;
+
+  @media (min-width: v.$tablet-width) {
+    padding-inline: 59px;
+  }
+
+  @media (min-width: v.$desktop-width) {
+    padding-inline: 0;
+  }
+}
+
+.jury-slider__cards {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.jury-slider__navigation {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  display: none;
+  pointer-events: none;
+  transform: translateY(-50%);
+
+  @media (min-width: v.$tablet-width) {
+    display: flex;
+    justify-content: space-between;
+    margin-inline: -10px;
+  }
+
+  @media (min-width: v.$desktop-width) {
+    top: 49%;
+    margin-inline: -69px;
+  }
+}

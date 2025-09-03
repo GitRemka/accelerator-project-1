@@ -1,0 +1,15 @@
+@use "../../../utils/variables.scss" as v;
+
+.faq-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.faq-tabs__button-item {
+  flex: 1;
+}

@@ -1,0 +1,94 @@
+@use "../../utils/variables.scss" as v;
+
+.info-hero {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas:
+    "description hero"
+    "button      button";
+  align-items: end;
+  justify-content: center;
+  row-gap: 48px;
+  width: 100%;
+  text-align: right;
+  color: v.$base-white;
+
+  @media (min-width: v.$tablet-width) {
+    grid-template-columns: auto 185px;
+    grid-template-areas:
+      "description hero"
+      "description button";
+    align-items: center;
+    justify-content: space-between;
+    row-gap: 50px;
+  }
+
+  @media (min-width: v.$desktop-width) {
+    grid-template-columns: auto 270px;
+    justify-content: end;
+    row-gap: 40px;
+  }
+}
+
+.info-hero__text-wrapper {
+  display: flex;
+  flex-direction: column-reverse;
+  row-gap: 14px;
+  grid-area: hero;
+
+  @media (min-width: v.$tablet-width) {
+    row-gap: 10px;
+  }
+
+  @media (min-width: v.$desktop-width) {
+    row-gap: 40px;
+  }
+}
+
+.info-hero__title {
+  margin: 0;
+}
+
+.info-hero__city {
+  margin: 0;
+  font-family: v.$second-family;
+  font-size: 32px;
+  line-height: 32px;
+  font-weight: 600;
+
+  @media (min-width: v.$tablet-width) {
+    font-size: 42px;
+    line-height: 42px;
+  }
+
+  @media (min-width: v.$desktop-width) {
+    font-size: 54px;
+    line-height: 54px;
+  }
+}
+
+.info-hero__description {
+  grid-area: description;
+  margin: 0;
+  padding: 0;
+  line-height: 20px;
+  color: v.$base-white;
+  list-style: none;
+
+  @media (min-width: v.$tablet-width) {
+    line-height: 22px;
+  }
+}
+
+.info-hero__buy-abonnement {
+  grid-area: button;
+  justify-self: center;
+
+  @media (min-width: v.$tablet-width) {
+    height: 56px;
+  }
+
+  @media (min-width: v.$desktop-width) {
+    height: 66px;
+  }
+}

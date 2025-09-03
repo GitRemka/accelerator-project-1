@@ -1,0 +1,66 @@
+@use "../../utils/variables.scss" as v;
+@use "../../utils/mixins.scss" as mix;
+
+.field-data {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2px;
+
+  &:has(input:invalid:not(:placeholder-shown)) {
+    .field-data__error {
+      display: block;
+    }
+  }
+}
+
+
+.field-data__input {
+  width: 100%;
+  padding: 0;
+  padding-block: 2px;
+  line-height: 22px;
+  color: v.$base-white;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #74819c;
+  transition: border-color v.$transition-default;
+
+  &::placeholder {
+    font-weight: 300;
+    color: v.$base-white;
+    opacity: 0.4;
+  }
+
+  &:hover:not(:disabled) {
+    border-color: v.$base-white;
+  }
+
+  @include mix.focus-visible {
+    border: none;
+    outline: 1px solid v.$base-white;
+    outline-offset: 5px;
+  }
+
+  &:invalid:not(:placeholder-shown) {
+    border-bottom: 1px solid v.$error;
+    outline: none;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+  }
+
+  @media (min-width: v.$tablet-width) {
+    &::placeholder {
+      font-weight: 400;
+    }
+  }
+}
+
+.field-data__error {
+  display: none;
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 400;
+  color: v.$error;
+}

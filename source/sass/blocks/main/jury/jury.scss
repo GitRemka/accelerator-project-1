@@ -1,0 +1,23 @@
+@use "../../../utils/variables.scss" as v;
+
+.jury {
+  padding-block: 40px;
+
+  @media (min-width: v.$tablet-width) {
+    padding-block: 30px 60px;
+  }
+
+  @media (min-width: v.$desktop-width) {
+    padding-block: 100px;
+  }
+}
+
+.jury__title {
+  margin-bottom: 20px;
+
+  @media (min-width: v.$tablet-width) {
+    margin-bottom: 46px;
+    font-size: 54px;
+    line-height: 54px;
+  }
+}

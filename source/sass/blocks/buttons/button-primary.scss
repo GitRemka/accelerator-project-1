@@ -1,0 +1,73 @@
+@use "../../utils/variables.scss" as v;
+@use "../../utils/mixins.scss" as mix;
+
+.button-primary {
+  display: grid;
+  place-items: center;
+  width: min(100%, 500px);
+  height: 60px;
+  font-family: v.$font-family;
+  font-size: 12px;
+  line-height: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: v.$base-white;
+  background-color: transparent;
+  border: 2px solid v.$base-white;
+  cursor: pointer;
+  transition:
+    color v.$transition-default,
+    background-color v.$transition-default;
+
+  @media (min-width: v.$tablet-width) {
+    &:hover:not(:disabled) {
+      color: v.$base-secondary;
+      background-color: v.$base-white;
+    }
+
+    @include mix.focus-visible {
+      color: v.$base-secondary;
+      background-color: rgba($color: v.$base-white, $alpha: 0.8);
+      border-color: v.$base-black;
+      outline: none;
+    }
+  }
+
+  &:active:not(:disabled) {
+    color: v.$base-primary;
+    background-color: v.$base-white;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+  }
+
+  &--dark-blue {
+    color: v.$base-primary;
+    border-color: v.$base-primary;
+
+    @media (min-width: v.$tablet-width) {
+      &:hover:not(:disabled) {
+        color: v.$base-white;
+        background: v.$button-grad;
+      }
+
+      @include mix.focus-visible {
+        color: v.$base-white;
+        background: v.$button-focus-grad;
+        border-color: v.$base-black;
+        outline: none;
+      }
+    }
+
+    &:active:not(:disabled) {
+      color: rgba($color: v.$base-white, $alpha: 0.7);
+      background: v.$button-grad;
+    }
+
+    &:disabled {
+      opacity: 0.3;
+    }
+  }
+}

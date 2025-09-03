@@ -1,0 +1,13 @@
+@use "../../../utils/variables.scss" as v;
+
+.games {
+  padding-block: 25px;
+
+  @media (min-width: v.$tablet-width) {
+    padding-block: 60px;
+  }
+
+  @media (min-width: v.$desktop-width) {
+    padding-block: 100px;
+  }
+}

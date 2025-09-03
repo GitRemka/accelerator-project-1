@@ -1,0 +1,79 @@
+@use "../../../utils/variables.scss" as v;
+
+.questions-item {
+  display: grid;
+  grid-template-columns: minmax(200px, 555px) 30px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0 22px;
+  padding-block: 20px;
+  color: v.$base-primary;
+  border-bottom: 1px solid v.$divider;
+  transition: gap 0.8s ease;
+
+  &:first-of-type {
+    border-top: 1px solid v.$divider;
+  }
+
+  @media (min-width: v.$tablet-width) {
+    grid-template-columns: minmax(200px, 555px) 40px;
+    padding-block: 23px;
+  }
+
+  @media (min-width: v.$desktop-width) {
+    grid-template-columns: minmax(200px, 655px) 40px;
+    padding-block: 22px 23px;
+  }
+}
+
+.questions-item.open {
+  gap: 20px 22px;
+
+  @media (min-width: v.$tablet-width) {
+    gap: 10px 22px;
+  }
+
+  @media (min-width: v.$desktop-width) {
+    gap: 23px 22px;
+  }
+
+  .questions-item__answer {
+    max-height: 20rem;
+  }
+}
+
+.questions-item__title {
+  margin: 0;
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: 400;
+
+  @media (min-width: v.$tablet-width) {
+    font-size: 22px;
+    line-height: 22px;
+  }
+
+  @media (min-width: v.$desktop-width) {
+    font-size: 24px;
+    line-height: 24px;
+  }
+}
+
+.questions-item__answer {
+  position: relative;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height v.$transition-ease-in-out;
+}
+
+.questions-item__answer p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 300;
+
+  @media (min-width: v.$tablet-width) {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}

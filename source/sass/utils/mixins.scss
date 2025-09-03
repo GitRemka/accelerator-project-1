@@ -1,0 +1,19 @@
+@use "../utils/variables.scss" as v;
+
+@mixin retina {
+  @media (min-resolution: v.$retina-dpi) {
+    @content;
+  }
+}
+
+@mixin focus-visible {
+  &:focus-visible {
+    @content;
+  }
+
+  @supports not selector(:focus-visible) {
+    &:focus {
+      @content;
+    }
+  }
+}

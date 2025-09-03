@@ -1,0 +1,73 @@
+@use "../../utils/variables.scss" as v;
+@use "../../utils/mixins.scss" as mix;
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+  text-decoration: none;
+  background-color: v.$base-white;
+  border-radius: 50%;
+  transition: background-color v.$transition-default;
+
+  &::after {
+    content: "";
+    mask: no-repeat 50%;
+    background-color: v.$dark;
+    transition: background-color v.$transition-default;
+  }
+
+  &--vk::after {
+    width: 13px;
+    height: 8px;
+    mask-image: url("/__spritemap#sprite-vk-view");
+    mask-size: 13px 8px;
+  }
+
+  &--ok::after {
+    width: 10px;
+    height: 17px;
+    mask-image: url("/__spritemap#sprite-odnoklassniki-view");
+    mask-size: 10px 17px;
+  }
+
+  &--reddit::after {
+    width: 15px;
+    height: 15px;
+    mask-image: url("/__spritemap#sprite-reddit-view");
+    mask-size: 15px 15px;
+  }
+
+  @media (min-width: v.$tablet-width) {
+    &[href]:hover:not(.disabled) {
+      background-color: v.$divider;
+
+      &::after {
+        background-color: v.$base-white;
+      }
+    }
+
+    @include mix.focus-visible {
+      background-color: v.$base-secondary;
+      outline: none;
+
+      &::after {
+        background-color: v.$base-white;
+      }
+    }
+  }
+
+  &[href]:active:not(.disabled) {
+    background-color: v.$base-primary;
+  }
+
+  &[href]:active:not(.disabled)::after {
+    background-color: v.$base-white;
+  }
+
+  &:disabled {
+    background-color: rgba($color: v.$base-white, $alpha: 0.3);
+  }
+}
